@@ -21,12 +21,22 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordTextField.isSecureTextEntry = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.userName = userNameTextField.text
+        
+        switch (userNameTextField.text, passwordTextField.text) {
+        case ("User", "1234"):
+            print("прошел1")
+        case ("user", "1234"):
+            print("прошел2")
+        default:
+            showAlert(withTitle: "Invalid login or password", andMessage: "Please use User for login, 1234 for password")
+            passwordTextField.text = ""
+        }
     }
     
     // MARK: - IBActions
@@ -42,6 +52,13 @@ class MainViewController: UIViewController {
     @IBAction func forgotPasswordButtonTapped() {
         showAlert(withTitle: "Ooops!", andMessage: "Your password is 1234")
     }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard segue.source is WelcomeViewController else { return }
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
 }
 
 // MARK: - UIAlertController

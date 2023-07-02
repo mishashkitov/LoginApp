@@ -23,8 +23,7 @@ final class WelcomeViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func LogOutButtonDidTapped() {
-        dismiss(animated: true)
-        
+
     }
     
 }

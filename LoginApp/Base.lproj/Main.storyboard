@@ -45,7 +45,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="loginButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQO-hE-Yfj"/>
-                                                    <segue destination="K36-ln-sJh" kind="presentation" id="hGf-0D-XuM"/>
+                                                    <segue destination="K36-ln-sJh" kind="presentation" identifier="" id="hGf-0D-XuM"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -129,6 +129,7 @@
                                 <state key="normal" title="Log out"/>
                                 <connections>
                                     <action selector="LogOutButtonDidTapped" destination="K36-ln-sJh" eventType="touchUpInside" id="8AV-RX-FAk"/>
+                                    <segue destination="SKy-Jj-vtH" kind="unwind" unwindAction="unwindFor:" id="CBr-Dv-u3x"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRJ-R1-SCI">
@@ -155,6 +156,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDJ-iL-Q9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="SKy-Jj-vtH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3703.0534351145038" y="4.9295774647887329"/>
         </scene>

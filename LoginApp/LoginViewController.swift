@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
     
@@ -17,31 +17,41 @@ class MainViewController: UIViewController {
     @IBOutlet var forgotUserNameButton: UIButton!
     @IBOutlet var forgotPasswordButton: UIButton!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.isSecureTextEntry = true
+        userNameTextField.autocorrectionType = .no
+        passwordTextField.autocorrectionType = .no
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.userName = userNameTextField.text
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
-        switch (userNameTextField.text, passwordTextField.text) {
-        case ("User", "1234"):
-            print("прошел1")
-        case ("user", "1234"):
-            print("прошел2")
-        default:
-            showAlert(withTitle: "Invalid login or password", andMessage: "Please use User for login, 1234 for password")
-            passwordTextField.text = ""
+        if let touch = touches.first, !userNameTextField.frame.contains(touch.location(in: view)) {
+            userNameTextField.resignFirstResponder()
+        }
+        if let touch = touches.first, !passwordTextField.frame.contains(touch.location(in: view)) {
+            passwordTextField.resignFirstResponder()
         }
     }
     
     // MARK: - IBActions
     
     @IBAction func loginButtonTapped() {
+        
+        let currentLogin = userNameTextField.text?.lowercased()
+        let correctLogin = "user"
+        let correctPassword = "1234"
+        
+        if currentLogin != correctLogin || passwordTextField.text != correctPassword {
+            showAlert(withTitle: "Invalid login or password", andMessage: "Please use User for login, 1234 for password")
+        }
         
     }
     
@@ -63,10 +73,12 @@ class MainViewController: UIViewController {
 
 // MARK: - UIAlertController
 
-extension MainViewController {
+extension LoginViewController {
     private func showAlert(withTitle title: String, andMessage message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.passwordTextField.text = ""
+        }
         alert.addAction(okAction)
         present(alert, animated: true)
     }

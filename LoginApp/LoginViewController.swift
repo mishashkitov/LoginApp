@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  LoginApp
 //
 //  Created by Misha Shkitov on 30.06.23.

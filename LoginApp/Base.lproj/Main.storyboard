@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="feH-kt-RFd">
-                                <rect key="frame" x="41" y="285" width="311" height="200"/>
+                                <rect key="frame" x="41" y="283" width="311" height="286"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="cY0-gj-iTj">
                                         <rect key="frame" x="0.0" y="0.0" width="311" height="85"/>
@@ -50,11 +50,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="0xo-UV-Od4">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0xo-UV-Od4">
                                         <rect key="frame" x="0.0" y="171" width="311" height="29"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-qi-zkd">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="126" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot User Name?">
@@ -77,6 +77,13 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEr-VP-ClE">
+                                        <rect key="frame" x="0.0" y="226" width="311" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="XKf-HB-Nxs"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -84,8 +91,8 @@
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="feH-kt-RFd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e9V-J7-QcN"/>
+                            <constraint firstItem="feH-kt-RFd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sbR-JJ-RA8"/>
                             <constraint firstItem="feH-kt-RFd" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.791349" id="wCo-Fs-kJr"/>
-                            <constraint firstItem="feH-kt-RFd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="182" id="xdm-wK-P0f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="r7v-WC-zfj"/>
@@ -180,6 +187,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
